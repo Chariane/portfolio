@@ -58,10 +58,18 @@
     content: "";
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(circle at 15% 10%, rgba(59,130,246,0.10), transparent 40%),
-                       radial-gradient(circle at 85% 30%, rgba(168,85,247,0.08), transparent 40%);
+    background-image: radial-gradient(circle at 15% 10%, rgba(59,130,246,0.16), transparent 42%),
+                       radial-gradient(circle at 85% 25%, rgba(168,85,247,0.14), transparent 42%),
+                       radial-gradient(circle at 30% 85%, rgba(20,184,166,0.10), transparent 40%),
+                       radial-gradient(circle at 75% 75%, rgba(245,158,11,0.08), transparent 38%);
+    background-size: 200% 200%;
+    animation: driftBg 22s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
+  }
+  @keyframes driftBg {
+    0%, 100% { background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%; }
+    50% { background-position: 8% 8%, 92% 8%, 8% 92%, 92% 92%; }
   }
 
   .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
@@ -190,7 +198,13 @@
   }
 
   h1.name { font-size: 42px; line-height: 1.15; margin-bottom: 18px; }
-  h1.name .accent { color: var(--blue); }
+  h1.name .accent {
+    background: linear-gradient(90deg, var(--blue), var(--purple), var(--teal), var(--blue));
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmerText 6s linear infinite;
+  }
+  @keyframes shimmerText { to { background-position: 300% 0; } }
 
   .hero-desc { font-size: 16.5px; color: var(--text-muted); max-width: 500px; margin-bottom: 26px; }
   .hero-desc strong { color: var(--text); font-weight: 600; }
@@ -219,7 +233,15 @@
     cursor: pointer;
   }
   .btn:hover { transform: translateY(-2px); }
-  .btn-primary { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); color: #fff; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.35); }
+    50% { box-shadow: 0 0 18px 4px rgba(59,130,246,0.25); }
+  }
   .btn-primary:hover { box-shadow: 0 10px 24px -10px rgba(59,130,246,0.7); }
   .btn-outline { background: transparent; border-color: var(--border); color: var(--text); }
   .btn-outline:hover { border-color: var(--blue); }
@@ -335,7 +357,13 @@
     display: flex; flex-direction: column; align-items: center; gap: 10px;
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
-  .tech-card:hover { transform: translateY(-3px); border-color: var(--blue); }
+  .tech-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    border-color: var(--blue);
+    box-shadow: 0 14px 26px -14px rgba(59,130,246,0.45);
+  }
+  .tech-card:hover .tech-mark { transform: rotate(-8deg) scale(1.1); }
+  .tech-mark { transition: transform 0.25s ease; }
   .tech-mark {
     width: 40px; height: 40px; border-radius: 9px;
     display: flex; align-items: center; justify-content: center;
@@ -395,7 +423,18 @@
     border-radius: 12px; overflow: hidden;
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
-  .project:hover { transform: translateY(-4px); border-color: var(--blue); box-shadow: 0 16px 32px -18px rgba(59,130,246,0.4); }
+  .project { position: relative; overflow: hidden; }
+  .project::after {
+    content: "";
+    position: absolute; top: 0; left: -60%;
+    width: 40%; height: 100%;
+    background: linear-gradient(115deg, transparent, rgba(255,255,255,0.08), transparent);
+    transform: skewX(-15deg);
+    transition: left 0.6s ease;
+    pointer-events: none;
+  }
+  .project:hover::after { left: 130%; }
+  .project:hover { transform: translateY(-6px); border-color: var(--blue); box-shadow: 0 18px 34px -16px rgba(59,130,246,0.45); }
   .project-banner {
     height: 90px;
     display: flex; align-items: flex-start; justify-content: space-between;
@@ -1038,7 +1077,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Un outil opérationnel couvrant tout le cycle : création de tâches, suivi et échanges en temps réel.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Tailwind</span></div>
-            <a class="project-link" href="https://github.com/Chariane" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/planer" target="_blank" rel="noopener">Code source →</a>
           </div>
         </div>
       </div>
@@ -1055,7 +1094,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Un flux complet de création et de suivi d'événements, de la publication à la gestion des participants.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">Next.js</span><span class="stack-tag">PostgreSQL</span></div>
-            <a class="project-link" href="https://github.com/Chariane" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/my_event" target="_blank" rel="noopener">Code source →</a>
           </div>
         </div>
       </div>
@@ -1072,7 +1111,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Un parcours de commande fonctionnel, de la sélection des plats au suivi de la livraison.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span></div>
-            <a class="project-link" href="https://github.com/Chariane" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/LyteFood" target="_blank" rel="noopener">Code source →</a>
           </div>
         </div>
       </div>
@@ -1089,7 +1128,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Une plateforme présentant le patrimoine béninois de façon structurée et accessible.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">Laravel</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span></div>
-            <a class="project-link" href="https://github.com/Chariane" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/culture-benin" target="_blank" rel="noopener">Code source →</a>
           </div>
         </div>
       </div>
@@ -1106,7 +1145,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Une application mobile fonctionnelle avec persistance des données via PostgreSQL.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">Flutter</span><span class="stack-tag">Dart</span><span class="stack-tag">PostgreSQL</span></div>
-            <a class="project-link" href="https://github.com/Chariane" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/garage_finder" target="_blank" rel="noopener">Code source →</a>
           </div>
         </div>
       </div>
