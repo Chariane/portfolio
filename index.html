@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nadège TOVIHOUANDE</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='2' y1='2' x2='38' y2='38' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='1' y='1' width='38' height='38' rx='11' fill='url(%23g)'/%3E%3Cpath d='M12 27V13.6L14.3 13.6L23.2 24.4V13.6H25.6V27H23.4L14.4 16V27H12Z' fill='white' fill-opacity='0.96'/%3E%3Ccircle cx='31.5' cy='9.5' r='2.2' fill='white' fill-opacity='0.85'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -599,6 +600,28 @@
     .contact-banner h2 { font-size: 22px; }
   }
 
+  .contact-form { position: relative; z-index: 1; max-width: 520px; margin: 0 auto; text-align: left; }
+  .form-row { display: flex; gap: 12px; margin-bottom: 12px; }
+  .contact-form input, .contact-form textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    resize: vertical;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.65); }
+  .contact-form input:focus, .contact-form textarea:focus {
+    outline: none; border-color: #fff; background: rgba(255,255,255,0.18);
+  }
+  .contact-form textarea { margin-bottom: 16px; }
+  .contact-form button { width: 100%; justify-content: center; border: none; cursor: pointer; }
+  @media (max-width: 560px) { .form-row { flex-direction: column; } }
+
   #contact { text-align: center; }
   .contact-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 
@@ -852,7 +875,7 @@
     </ul>
     <div class="nav-right">
       <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
-      <a href="Cv_nadegetovihouande.pdf" download class="btn btn-outline" style="padding:9px 16px; font-size:13.5px;"><span>📄 CV</span></a>
+      <a href="CV_Nadege_Tovihouande.pdf" download class="btn btn-outline" style="padding:9px 16px; font-size:13.5px;"><span>📄 CV</span></a>
       <a href="#contact" class="nav-cta">Me contacter</a>
       <button class="nav-burger" aria-label="Menu">☰</button>
     </div>
@@ -1020,13 +1043,53 @@
     </div>
   </section>
 
+  <section id="services" class="reveal full-section band-alt">
+    <div class="wrap section-inner">
+    <div class="section-head left">
+      <div class="section-eyebrow">CE QUE JE PROPOSE</div>
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">Ce que je peux prendre en charge pour votre projet.</p>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-icon icon-blue">🌐</div>
+        <h3>Développement web sur-mesure</h3>
+        <p>Application web complète, du back-end à l'interface — FastAPI, Laravel, React.js.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon icon-purple">📱</div>
+        <h3>Applications mobiles</h3>
+        <p>Applications Flutter multiplateformes, pensées pour une expérience fluide.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon icon-orange">🔗</div>
+        <h3>API & bases de données</h3>
+        <p>Conception d'API REST et modélisation de bases de données PostgreSQL fiables.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon icon-blue">🛡</div>
+        <h3>Bonnes pratiques de sécurité</h3>
+        <p>Attention portée aux vulnérabilités courantes dès la conception, grâce à ma pratique du pentesting.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
   <section id="contact" class="reveal full-section band-base">
     <div class="wrap section-inner">
     <div class="contact-banner">
       <div class="contact-banner-glow"></div>
       <h2>Vous avez une idée de projet ?</h2>
       <p>Ou vous aimeriez donner plus de visibilité à votre travail ? Parlons-en.</p>
-      <a class="btn btn-white" href="mailto:nadegetovihouande@gmail.com"><span>✉ Contactez-moi</span></a>
+
+      <form class="contact-form" onsubmit="return sendContactForm(event)">
+        <div class="form-row">
+          <input type="text" id="cf-name" placeholder="Votre nom" required>
+          <input type="email" id="cf-email" placeholder="Votre email" required>
+        </div>
+        <textarea id="cf-message" rows="4" placeholder="Parlez-moi de votre projet ou de votre demande..." required></textarea>
+        <button type="submit" class="btn btn-white"><span>✉ Envoyer le message</span></button>
+      </form>
     </div>
 
     <div class="contact-cards">
@@ -1201,20 +1264,7 @@
     </div>
   </section>
 
-  <section id="interests" class="reveal full-section band-base">
-    <div class="wrap section-inner">
-    <div class="section-head left">
-      <div class="section-eyebrow">EN DEHORS DU CODE</div>
-      <h2 class="section-title">Centres d'intérêt</h2>
-    </div>
-    <div class="interests-row">
-      <div class="interest-card"><span class="interest-icon">Lc</span><span>Lecture</span></div>
-      <div class="interest-card"><span class="interest-icon">Sp</span><span>Sport</span></div>
-    </div>
-    </div>
-  </section>
-
-  <section id="path" class="reveal full-section band-alt">
+  <section id="path" class="reveal full-section band-base">
     <div class="wrap section-inner">
     <div class="section-head left">
       <div class="section-eyebrow">PARCOURS</div>
@@ -1263,7 +1313,7 @@
         <a href="#projects">Projets</a>
         <a href="#path">Parcours</a>
         <a href="#contact">Contact</a>
-        <a href="Cv_nadegetovihouande.pdf" download>Télécharger mon CV</a>
+        <a href="CV_Nadege_Tovihouande.pdf" download>Télécharger mon CV</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
@@ -1356,6 +1406,17 @@
     htmlEl.setAttribute('data-theme', isLight ? 'dark' : 'light');
     themeToggle.textContent = isLight ? '🌙' : '☀️';
   });
+
+  function sendContactForm(e) {
+    e.preventDefault();
+    const name = document.getElementById('cf-name').value;
+    const email = document.getElementById('cf-email').value;
+    const message = document.getElementById('cf-message').value;
+    const subject = encodeURIComponent('Contact portfolio — ' + name);
+    const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:nadegetovihouande@gmail.com?subject=' + subject + '&body=' + body;
+    return false;
+  }
 
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('#projects-grid .project');
