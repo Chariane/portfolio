@@ -7,7 +7,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='2' y1='2' x2='38' y2='38' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='1' y='1' width='38' height='38' rx='11' fill='url(%23g)'/%3E%3Cpath d='M12 27V13.6L14.3 13.6L23.2 24.4V13.6H25.6V27H23.4L14.4 16V27H12Z' fill='white' fill-opacity='0.96'/%3E%3Ccircle cx='31.5' cy='9.5' r='2.2' fill='white' fill-opacity='0.85'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0b1220;
@@ -49,8 +49,8 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.65;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
     transition: background 0.3s ease, color 0.3s ease;
   }
@@ -74,7 +74,7 @@
   }
 
   .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
-  h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.01em; }
+  h1, h2, h3 { font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.015em; }
   a { color: inherit; }
   .mono { font-family: 'JetBrains Mono', monospace; }
 
@@ -100,7 +100,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Sora', sans-serif;
     font-weight: 700;
     font-size: 16px;
     text-decoration: none;
@@ -175,9 +175,9 @@
 
   /* ---------- HERO ---------- */
   header.hero { padding: 76px 0 40px; }
-  .hero-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: center; }
-  .hero-text-col { order: 2; }
-  .hero-photo-frame { order: 1; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+  .hero-text-col { order: 1; }
+  .hero-photo-frame { order: 2; }
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 13px; font-weight: 500; color: var(--blue);
@@ -198,7 +198,7 @@
     margin-bottom: 12px;
   }
 
-  h1.name { font-size: 42px; line-height: 1.15; margin-bottom: 18px; }
+  h1.name { font-size: 42px; line-height: 1.13; margin-bottom: 18px; font-weight: 800; }
   h1.name .accent {
     background: linear-gradient(90deg, var(--blue), var(--purple), var(--teal), var(--blue));
     background-size: 300% 100%;
@@ -258,7 +258,7 @@
     box-shadow: 0 0 0 1px rgba(59,130,246,0.15), 0 30px 60px -30px rgba(59,130,246,0.4);
   }
   .hero-photo-frame .avatar-initials {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Sora', sans-serif;
     font-size: 96px; font-weight: 700;
     background: linear-gradient(135deg, var(--blue), var(--purple));
     -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -284,7 +284,7 @@
 
   /* ---------- STATS ---------- */
   .stats-bar {
-    display: grid; grid-template-columns: repeat(4, 1fr);
+    display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 0; margin: 52px 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -293,19 +293,19 @@
   .stat { text-align: center; border-right: 1px solid var(--border); }
   .stat:last-child { border-right: none; }
   .stat-num {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Sora', sans-serif;
     font-size: 34px; font-weight: 700; color: var(--blue);
     margin-bottom: 8px;
   }
   .stat-static { color: var(--teal); }
   .stat-label { font-size: 13px; color: var(--text-muted); }
   @media (max-width: 640px) {
-    .stats-bar { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
-    .stat:nth-child(2n) { border-right: none; }
+    .stats-bar { grid-template-columns: 1fr; row-gap: 24px; }
+    .stat { border-right: none; }
   }
 
   /* ---------- SECTION GENERIC ---------- */
-  section { padding: 60px 0; }
+  section { padding: 96px 0; }
   .full-section {
     position: relative;
     border-top: 1px solid var(--border);
@@ -313,7 +313,7 @@
   .full-section.band-base { background: var(--bg); }
   .full-section.band-alt { background: var(--surface); }
   .section-inner { padding-left: 24px; padding-right: 24px; }
-  .section-head { text-align: left; max-width: 620px; margin: 0 0 40px; }
+  .section-head { text-align: left; max-width: 620px; margin: 0 0 56px; }
   .section-eyebrow {
     font-size: 13px; font-weight: 600; color: var(--blue);
     margin-bottom: 10px;
@@ -324,10 +324,10 @@
   .section-head.left { text-align: left; margin: 0 0 36px; max-width: none; }
 
   /* ---------- APPROACH CARDS ---------- */
-  .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
   .approach-card {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; padding: 26px;
+    border-radius: 14px; padding: 32px;
     transition: transform 0.25s ease, border-color 0.25s ease;
   }
   .approach-card:hover { transform: translateY(-4px); border-color: var(--blue); }
@@ -368,14 +368,14 @@
   .tech-mark {
     width: 40px; height: 40px; border-radius: 9px;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px;
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px;
   }
   .tech-name { font-size: 12.5px; font-weight: 500; text-align: center; color: var(--text-muted); }
   @media (max-width: 780px) { .tech-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 480px) { .tech-grid { grid-template-columns: repeat(2, 1fr); } }
 
   /* ---------- EXPERTISE (skills detail) ---------- */
-  .expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
   .expertise-card {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 12px; padding: 26px;
@@ -418,7 +418,7 @@
   .filter-btn:not(.active):hover { border-color: var(--blue); color: var(--text); }
 
   /* ---------- PROJECTS ---------- */
-  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
   .project {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 12px; overflow: hidden;
@@ -609,7 +609,7 @@
     border-radius: 8px;
     padding: 12px 14px;
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px;
     resize: vertical;
     transition: border-color 0.2s ease, background 0.2s ease;
@@ -681,8 +681,15 @@
   .float-chip-1 { animation: floatY 4s ease-in-out infinite; animation-delay: 0.5s; }
   .float-chip-2 { animation: floatY 4.5s ease-in-out infinite reverse; animation-delay: 0.7s; }
 
-  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal {
+    opacity: 0;
+    transform: translateY(56px) scale(0.98);
+    filter: blur(4px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.9s ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 
   .reveal.is-visible .approach-card,
   .reveal.is-visible .tech-card,
@@ -741,7 +748,7 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
     }
-    .reveal, .hero-name-tag, .hero-eyebrow, h1.name, .hero-desc, .check-list, .cta-row, .hero-photo-frame { opacity: 1; transform: none; }
+    .reveal, .hero-name-tag, .hero-eyebrow, h1.name, .hero-desc, .check-list, .cta-row, .hero-photo-frame { opacity: 1; transform: none; filter: none; }
   }
 
   /* ---------- PRELOADER ---------- */
@@ -917,7 +924,6 @@
       <div class="stat"><div class="stat-num" data-target="5">+0</div><div class="stat-label">Projets réalisés</div></div>
       <div class="stat"><div class="stat-num" data-target="2">+0</div><div class="stat-label">Stages en entreprise</div></div>
       <div class="stat"><div class="stat-num" data-target="12">+0</div><div class="stat-label">Technologies maîtrisées</div></div>
-      <div class="stat"><div class="stat-num stat-static">TB</div><div class="stat-label">Mention au mémoire</div></div>
     </div>
     </div>
   </section>
@@ -1048,28 +1054,38 @@
     <div class="section-head left">
       <div class="section-eyebrow">CE QUE JE PROPOSE</div>
       <h2 class="section-title">Services</h2>
-      <p class="section-sub">Ce que je peux prendre en charge pour votre projet.</p>
+      <p class="section-sub">Des solutions concrètes, adaptées à votre besoin et à votre budget.</p>
     </div>
-    <div class="approach-grid">
+    <div class="approach-grid services-grid">
       <div class="approach-card">
-        <div class="approach-icon icon-blue">🌐</div>
-        <h3>Développement web sur-mesure</h3>
-        <p>Application web complète, du back-end à l'interface — FastAPI, Laravel, React.js.</p>
+        <div class="approach-icon icon-blue">🖥</div>
+        <h3>Site vitrine</h3>
+        <p>Un site professionnel et moderne pour présenter votre activité, vos services ou votre profil, et être visible en ligne.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon icon-orange">🛒</div>
+        <h3>Boutique en ligne</h3>
+        <p>Une plateforme e-commerce complète : catalogue produits, panier, gestion des commandes, prête à vendre.</p>
       </div>
       <div class="approach-card">
         <div class="approach-icon icon-purple">📱</div>
-        <h3>Applications mobiles</h3>
-        <p>Applications Flutter multiplateformes, pensées pour une expérience fluide.</p>
+        <h3>Application mobile</h3>
+        <p>Une application Flutter sur-mesure, fluide et multiplateforme, pensée pour vos utilisateurs.</p>
       </div>
       <div class="approach-card">
-        <div class="approach-icon icon-orange">🔗</div>
-        <h3>API & bases de données</h3>
-        <p>Conception d'API REST et modélisation de bases de données PostgreSQL fiables.</p>
+        <div class="approach-icon icon-blue">🔗</div>
+        <h3>API & intégrations</h3>
+        <p>Connecter vos outils entre eux, automatiser un flux, ou exposer vos données via une API REST fiable.</p>
       </div>
       <div class="approach-card">
-        <div class="approach-icon icon-blue">🛡</div>
-        <h3>Bonnes pratiques de sécurité</h3>
-        <p>Attention portée aux vulnérabilités courantes dès la conception, grâce à ma pratique du pentesting.</p>
+        <div class="approach-icon icon-orange">♻️</div>
+        <h3>Refonte de site existant</h3>
+        <p>Moderniser un site vieillissant : design actualisé, meilleures performances, expérience repensée.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon icon-purple">🛠</div>
+        <h3>Maintenance & évolutions</h3>
+        <p>Corrections, nouvelles fonctionnalités, suivi dans la durée — pour que votre outil continue de vous servir.</p>
       </div>
     </div>
     </div>
@@ -1140,7 +1156,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Un outil opérationnel couvrant tout le cycle : création de tâches, suivi et échanges en temps réel.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Tailwind</span></div>
-            <a class="project-link" href="https://github.com/Chariane/planer" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/planer" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:5px;"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Code source</a>
           </div>
         </div>
       </div>
@@ -1157,7 +1173,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Un flux complet de création et de suivi d'événements, de la publication à la gestion des participants.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">Next.js</span><span class="stack-tag">PostgreSQL</span></div>
-            <a class="project-link" href="https://github.com/Chariane/my_event" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/my_event" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:5px;"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Code source</a>
           </div>
         </div>
       </div>
@@ -1174,7 +1190,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Un parcours de commande fonctionnel, de la sélection des plats au suivi de la livraison.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span></div>
-            <a class="project-link" href="https://github.com/Chariane/LyteFood" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/LyteFood" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:5px;"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Code source</a>
           </div>
         </div>
       </div>
@@ -1191,7 +1207,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Une plateforme présentant le patrimoine béninois de façon structurée et accessible.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">Laravel</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span></div>
-            <a class="project-link" href="https://github.com/Chariane/culture-benin" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/culture-benin" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:5px;"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Code source</a>
           </div>
         </div>
       </div>
@@ -1208,7 +1224,7 @@
           <div class="pblock"><div class="pblock-label resultat">Résultat</div><div class="pblock-text">Une application mobile fonctionnelle avec persistance des données via PostgreSQL.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">Flutter</span><span class="stack-tag">Dart</span><span class="stack-tag">PostgreSQL</span></div>
-            <a class="project-link" href="https://github.com/Chariane/garage_finder" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/garage_finder" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:5px;"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Code source</a>
           </div>
         </div>
       </div>
@@ -1239,7 +1255,7 @@
           <div class="pblock"><div class="pblock-label resultat">État actuel</div><div class="pblock-text">4 écrans fonctionnels avec navigation GoRouter, formulaire validé (5 champs), 3 widgets réutilisables, interface responsive. Données actuellement fictives — le backend n'est pas encore connecté.</div></div>
           <div class="project-footer">
             <div class="project-stack"><span class="stack-tag">Flutter</span><span class="stack-tag">Dart</span><span class="stack-tag">GoRouter</span><span class="stack-tag">Provider</span></div>
-            <a class="project-link" href="https://github.com/Chariane/garage_finder" target="_blank" rel="noopener">Code source →</a>
+            <a class="project-link" href="https://github.com/Chariane/garage_finder" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:5px;"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Code source</a>
           </div>
         </div>
       </div>
@@ -1274,7 +1290,7 @@
       <div class="tl-item"><div class="tl-date">2026 (en cours)</div><div class="tl-title">Formation Machine Learning</div><div class="tl-sub">DataCamp</div></div>
       <div class="tl-item"><div class="tl-date">2025 — 2026</div><div class="tl-title">Stagiaire Développeuse Web</div><div class="tl-sub">Kapital Humain et Conseils, Cotonou — FastAPI, React.js, PostgreSQL</div></div>
       <div class="tl-item"><div class="tl-date">2026</div><div class="tl-title">Formation Dart & Flutter</div><div class="tl-sub">NextFlutter</div></div>
-      <div class="tl-item"><div class="tl-date">2023 — 2026</div><div class="tl-title">Licence en Analyse Informatique et Programmation</div><div class="tl-sub">UAC-ENEAM, Bénin — mémoire soutenu avec mention Très Bien</div></div>
+      <div class="tl-item"><div class="tl-date">2023 — 2026</div><div class="tl-title">Licence en Analyse Informatique et Programmation</div><div class="tl-sub">UAC-ENEAM, Bénin</div></div>
       <div class="tl-item"><div class="tl-date">2023</div><div class="tl-title">Baccalauréat série D</div><div class="tl-sub">CEG Suru Léré, Bénin</div></div>
     </div>
     </div>
