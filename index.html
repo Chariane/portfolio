@@ -63,7 +63,6 @@
     transition: background 0.4s ease, color 0.4s ease;
   }
 
-  /* --- animated background orbs --- */
   body::before {
     content: "";
     position: fixed;
@@ -83,7 +82,6 @@
     50% { background-position: 8% 10%, 92% 6%, 10% 92%, 90% 90%; }
   }
 
-  /* --- subtle grain overlay --- */
   body::after {
     content: "";
     position: fixed;
@@ -101,7 +99,6 @@
   .mono { font-family: 'JetBrains Mono', monospace; }
   img { max-width: 100%; display: block; }
 
-  /* ============ SCROLL PROGRESS ============ */
   .scroll-progress {
     position: fixed;
     top: 0; left: 0;
@@ -117,7 +114,6 @@
     transition: width 0.08s linear;
   }
 
-  /* ============ NAVBAR ============ */
   nav.topnav {
     position: sticky;
     top: 0;
@@ -261,7 +257,6 @@
     .nav-burger { display: flex; }
   }
 
-  /* ============ MOBILE MENU ============ */
   .mobile-menu {
     position: fixed;
     top: var(--nav-h);
@@ -303,7 +298,6 @@
   }
   .mobile-menu .mm-cta:hover { padding-left: 4px; }
 
-  /* ============ SECTIONS (full-width bands) ============ */
   .section-full {
     position: relative;
     padding: 96px 0;
@@ -352,7 +346,6 @@
   }
   .section-sub { color: var(--text-muted); font-size: 15.5px; max-width: 560px; }
 
-  /* ============ HERO ============ */
   header.hero {
     padding: 92px 0 56px;
     scroll-margin-top: var(--nav-h);
@@ -461,14 +454,13 @@
   .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
   .btn span { position: relative; z-index: 1; }
 
-  /* --- photo frame --- */
+  /* --- photo frame with fallback --- */
   .hero-photo-frame {
     position: relative;
     border-radius: 20px;
     background: var(--surface);
     border: 1px solid var(--border);
     aspect-ratio: 3/3.4;
-    display: flex; align-items: center; justify-content: center;
     overflow: visible;
     box-shadow:
       0 0 0 1px rgba(79,140,255,0.18),
@@ -488,17 +480,48 @@
     opacity: 0.7;
     pointer-events: none;
     animation: borderRotate 6s linear infinite;
+    z-index: 2;
   }
   @keyframes borderRotate {
     0%, 100% { opacity: 0.55; }
     50% { opacity: 1; }
   }
+
+  /* fallback initials — visible seulement si la photo ne charge pas */
+  .hero-photo-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(79,140,255,0.18), rgba(176,107,255,0.18));
+    z-index: 0;
+  }
+  .hero-photo-fallback span {
+    font-family: 'Sora', sans-serif;
+    font-size: 92px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+  }
+
   .hero-photo-img {
-    width: 100%; height: 100%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center top;
     border-radius: 20px;
+    z-index: 1;
   }
+  .hero-photo-img.img-failed { display: none; }
+
   .float-chip {
     position: absolute;
     background: var(--surface-2);
@@ -529,7 +552,6 @@
     .section-title { font-size: 24px; }
   }
 
-  /* ============ STATS ============ */
   .stats-bar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -565,32 +587,6 @@
     .stat { border-right: none; }
   }
 
-  /* ============ CARDS — generic gradient border on hover ============ */
-  .grad-card {
-    position: relative;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
-  }
-  .grad-card::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, var(--blue), var(--purple));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-  .grad-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -22px rgba(79,140,255,0.5); }
-  .grad-card:hover::before { opacity: 1; }
-
-  /* ============ APPROACH ============ */
   .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .approach-card {
     background: var(--surface);
@@ -642,7 +638,6 @@
 
   @media (max-width: 900px) { .approach-grid { grid-template-columns: 1fr; } }
 
-  /* ============ TECH GRID ============ */
   .tech-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -684,7 +679,6 @@
   @media (max-width: 900px) { .tech-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 520px) { .tech-grid { grid-template-columns: repeat(2, 1fr); } }
 
-  /* ============ EXPERTISE ============ */
   .expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .expertise-card {
     background: var(--surface);
@@ -725,7 +719,6 @@
   }
   @media (max-width: 700px) { .expertise-grid { grid-template-columns: 1fr; } }
 
-  /* ============ PROJECT FILTERS ============ */
   .filter-row {
     display: flex;
     gap: 10px;
@@ -753,7 +746,6 @@
   }
   .filter-btn:not(.active):hover { border-color: var(--blue); color: var(--text); }
 
-  /* ============ PROJECTS ============ */
   .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .project {
     background: var(--surface);
@@ -791,9 +783,11 @@
   .banner-web { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
   .banner-mobile { background: linear-gradient(135deg, #134e4a, #22d3c5); }
   .banner-security { background: linear-gradient(135deg, #581c87, #b06bff); }
+  .banner-progress { background: linear-gradient(135deg, #92400e, #f59e0b); }
   .banner-web::before,
   .banner-mobile::before,
-  .banner-security::before {
+  .banner-security::before,
+  .banner-progress::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -879,7 +873,6 @@
 
   @media (max-width: 780px) { .projects-grid { grid-template-columns: 1fr; } }
 
-  /* ============ SECURITY ============ */
   .security-box {
     display: flex;
     gap: 24px;
@@ -918,7 +911,6 @@
   .security-text h3 { font-size: 17px; margin-bottom: 7px; }
   .security-text p { color: var(--text-muted); font-size: 14.5px; }
 
-  /* ============ TIMELINE ============ */
   .timeline { position: relative; padding-left: 32px; max-width: 720px; }
   .timeline::before {
     content: "";
@@ -953,7 +945,6 @@
   .tl-title { font-size: 15.5px; font-weight: 600; margin-bottom: 3px; }
   .tl-sub { font-size: 13.5px; color: var(--text-muted); }
 
-  /* ============ CONTACT ============ */
   .contact-banner {
     position: relative;
     background: linear-gradient(125deg, var(--blue-dark), var(--blue) 55%, var(--purple));
@@ -1086,7 +1077,6 @@
     .contact-banner { padding: 44px 22px; }
   }
 
-  /* ============ FOOTER ============ */
   footer {
     border-top: 1px solid var(--border);
     padding: 56px 0 32px;
@@ -1163,7 +1153,6 @@
   }
   @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
 
-  /* ============ REVEAL ANIMATIONS ============ */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1206,7 +1195,6 @@
     }
   }
 
-  /* ============ PRELOADER ============ */
   #preloader {
     position: fixed;
     inset: 0;
@@ -1269,11 +1257,9 @@
 
   body.is-loading { overflow: hidden; }
 
-  /* ============ SERVICES GRID (uses approach-card) ============ */
   .services-grid { grid-template-columns: repeat(3, 1fr); }
   @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
 
-  /* light theme adjustments for banners */
   html[data-theme="light"] .project-banner.banner-web { background: linear-gradient(135deg, #1e40af, #3b82f6); }
   html[data-theme="light"] .project-banner.banner-mobile { background: linear-gradient(135deg, #0f766e, #14b8a6); }
 </style>
@@ -1345,7 +1331,7 @@
   <a href="#projects">Projets</a>
   <a href="#path">Parcours</a>
   <a href="#contact">Contact</a>
-  <a href="CV_Nadege_Tovihouande.pdf" download>📄 Télécharger mon CV</a>
+  <a href="Cv_nadegetovihouande.pdf" download>📄 Télécharger mon CV</a>
   <a href="#contact" class="mm-cta">Me contacter</a>
 </div>
 
@@ -1377,7 +1363,8 @@
         </div>
       </div>
       <div class="hero-photo-frame">
-        <img src="photo.jpg" alt="Photo de Nadège Tovihouande" class="hero-photo-img">
+        <div class="hero-photo-fallback" aria-hidden="true"><span>NT</span></div>
+        <img src="Ma_photo.jpg" alt="Photo de Nadège Tovihouande" class="hero-photo-img" onerror="this.classList.add('img-failed')">
         <div class="float-chip float-chip-1"><span class="float-chip-icon">⌨</span>Full-Stack</div>
         <div class="float-chip float-chip-2"><span class="float-chip-icon">🛡</span>Cybersécurité</div>
       </div>
@@ -1675,23 +1662,9 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ============ IN PROGRESS ============ -->
-<section id="in-progress" class="section-full band-base reveal">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-eyebrow" data-num="06">En ce moment</div>
-      <h2 class="section-title">Projets en cours de <span class="accent">développement</span></h2>
-      <p class="section-sub">Des projets pas encore terminés, mais que je fais évoluer activement.</p>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project">
-        <div class="project-banner banner-mobile">
-          <span class="project-tag">🚧 En cours</span>
+      <div class="project" data-cat="mobile">
+        <div class="project-banner banner-progress">
+          <span class="project-tag">🚧 En cours · Mobile</span>
           <div class="project-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         </div>
         <div class="project-body">
@@ -1705,15 +1678,16 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- ============ SECURITY ============ -->
-<section id="security-detail" class="section-full band-alt reveal">
+<section id="security-detail" class="section-full band-base reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow" data-num="07">En complément</div>
+      <div class="section-eyebrow" data-num="06">En complément</div>
       <h2 class="section-title">Sécurité <span class="accent">offensive</span></h2>
     </div>
     <div class="security-box">
@@ -1727,10 +1701,10 @@
 </section>
 
 <!-- ============ PATH / TIMELINE ============ -->
-<section id="path" class="section-full band-base reveal">
+<section id="path" class="section-full band-alt reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow" data-num="08">Parcours</div>
+      <div class="section-eyebrow" data-num="07">Parcours</div>
       <h2 class="section-title">Formation & <span class="accent">expérience</span></h2>
     </div>
     <div class="timeline">
@@ -1744,7 +1718,7 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section id="contact" class="section-full band-alt reveal">
+<section id="contact" class="section-full band-base reveal">
   <div class="wrap">
     <div class="contact-banner">
       <div class="contact-banner-glow"></div>
