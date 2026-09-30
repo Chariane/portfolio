@@ -576,29 +576,24 @@
   .hero-photo-frame::before {
     content: "";
     position: absolute;
-    inset: -2px;
-    border-radius: 22px;
-    background: conic-gradient(from 0deg, var(--blue), var(--purple), var(--teal), var(--orange), var(--blue));
-    opacity: 0.75;
+    inset: -20px;
+    border-radius: 30px;
+    background: radial-gradient(circle at 30% 30%, rgba(79,140,255,0.22), transparent 65%),
+                radial-gradient(circle at 70% 70%, rgba(176,107,255,0.18), transparent 65%);
+    filter: blur(24px);
+    opacity: 0.85;
     z-index: -1;
-    animation: conicSpin 8s linear infinite;
-    filter: blur(8px);
+    pointer-events: none;
   }
   .hero-photo-frame::after {
     content: "";
     position: absolute;
-    inset: -1px;
+    inset: 0;
     border-radius: 20px;
-    padding: 1px;
-    background: conic-gradient(from 0deg, var(--blue), var(--purple), var(--teal), var(--orange), var(--blue));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: conicSpin 6s linear infinite;
+    box-shadow: inset 0 0 0 1px rgba(79,140,255,0.25);
     pointer-events: none;
     z-index: 3;
   }
-  @keyframes conicSpin { to { transform: rotate(360deg); } }
 
   .hero-photo-fallback {
     position: absolute;
